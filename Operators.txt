@@ -1,0 +1,40 @@
+                        	Day-2:
+int *ptr;
+sizeof(ptr) is 8 bytes;
+*Arithmetic Operators
+
++
+
+-
+
+*
+
+/
+
+% its is not fot float datatypes
+
+*Assignment Operators
+
+= -> Equals is Assignment operator
++=
+-=
+*=
+/=
+%=
+
+*Comparison Operators
+
+==
+!=
+>=
+<=
+>
+<
+
+*Logical Operator
+
+&&
+
+||
+
+!
