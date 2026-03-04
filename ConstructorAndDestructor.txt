@@ -1,0 +1,254 @@
+Constructors And Destructors
+
+Ahhh nice 😎 now we’re stepping into **real OOP power** — Constructors & Destructors.
+
+This topic is super important for interviews and memory management.
+
+Let’s break it clean and simple.
+
+---
+
+# 🔷 1️⃣ Constructor
+
+## 👉 What is a Constructor?
+
+A **constructor** is a special function:
+
+* Same name as class
+* No return type (not even void)
+* Automatically runs when object is created
+
+---
+
+## 🔥 Basic Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    Student() {
+        cout << "Constructor called!";
+    }
+};
+
+int main() {
+    Student s1;   // Constructor runs automatically
+}
+```
+
+Output:
+
+```
+Constructor called!
+```
+
+---
+
+# 🔥 Types of Constructors
+
+## 1️⃣ Default Constructor
+
+No parameters.
+
+```cpp
+class Test {
+public:
+    Test() {
+        cout << "Default Constructor";
+    }
+};
+```
+
+---
+
+## 2️⃣ Parameterized Constructor
+
+Takes arguments.
+
+```cpp
+class Student {
+public:
+    int age;
+
+    Student(int a) {
+        age = a;
+    }
+};
+```
+
+Usage:
+
+```cpp
+Student s1(20);
+```
+
+---
+
+## 3️⃣ Constructor with Initialization List (Important)
+
+Better way to initialize:
+
+```cpp
+class Student {
+public:
+    int age;
+
+    Student(int a) : age(a) {}
+};
+```
+
+This is more efficient.
+
+---
+
+# 🔷 2️⃣ Destructor
+
+## 👉 What is Destructor?
+
+A destructor:
+
+* Same name as class
+* Starts with `~`
+* No return type
+* Runs automatically when object is destroyed
+
+---
+
+## 🔥 Example
+
+```cpp
+class Test {
+public:
+    Test() {
+        cout << "Constructor\n";
+    }
+
+    ~Test() {
+        cout << "Destructor\n";
+    }
+};
+
+int main() {
+    Test t;
+}
+```
+
+Output:
+
+```
+Constructor
+Destructor
+```
+
+Destructor runs when program ends (object goes out of scope).
+
+---
+
+# 🔥 Why Destructor Is Important?
+
+Used to:
+
+* Free dynamic memory
+* Close files
+* Release resources
+* Avoid memory leaks
+
+---
+
+## 🔥 Real Example (Dynamic Memory)
+
+```cpp
+class Test {
+    int* ptr;
+
+public:
+    Test() {
+        ptr = new int(10);
+    }
+
+    ~Test() {
+        delete ptr;
+        cout << "Memory Freed";
+    }
+};
+```
+
+If destructor not written → memory leak 😬
+
+---
+
+# 🔥 Important Rules
+
+✔ Only ONE destructor per class
+✔ Destructor cannot take parameters
+✔ Destructor cannot be overloaded
+✔ Automatically called
+
+---
+
+# 🧠 Execution Order (Important Interview Point)
+
+For local object:
+
+Constructor → when object created
+Destructor → when object goes out of scope
+
+For multiple objects:
+
+```cpp
+Test t1;
+Test t2;
+```
+
+Order:
+
+```
+Constructor t1
+Constructor t2
+Destructor t2
+Destructor t1
+```
+
+Destruction happens in reverse order.
+
+---
+
+# 🔥 Small Brain Question 😏
+
+What happens here?
+
+```cpp
+int main() {
+    Test t1;
+    {
+        Test t2;
+    }
+}
+```
+
+Answer:
+
+```
+Constructor t1
+Constructor t2
+Destructor t2
+Destructor t1
+```
+
+Because `t2` scope ends first.
+
+---
+
+You’re building solid C++ fundamentals now 👌
+
+Next level topics you might want:
+
+* Copy constructor
+* Move constructor (advanced)
+* Rule of Three
+* Deep vs shallow copy
+* Virtual destructor
+
+Tell me how deep you want to go 😎
