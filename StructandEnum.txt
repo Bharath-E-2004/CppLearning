@@ -1,0 +1,106 @@
+Struct
+
+#include <iostream>
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    float marks;
+};
+
+Student s1;
+s1.name = "Bharath";
+s1.age = 21;
+s1.marks = 85.5;
+
+cout << s1.name << " " << s1.age;
+
+
+🔥 Passing Struct to Function
+void print(Student s) {
+    cout << s.name;
+}
+
+Better way (avoid copying):
+
+void print(const Student &s) {
+    cout << s.name;
+}
+
+Using reference — efficient.
+
+🔥 Passing Struct to Function
+void print(Student s) {
+    cout << s.name;
+}
+
+Better way (avoid copying):
+
+void print(const Student &s) {
+    cout << s.name;
+}
+
+Using reference — efficient.
+
+struct A {
+    int x;   // public by default
+};
+
+class B {
+    int x;   // private by default
+};
+
+  Enumerator
+
+#include <iostream>
+using namespace std;
+
+enum Day {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY
+};
+
+🧠 Why 0?
+
+By default:
+
+Name	Value
+MONDAY	0
+TUESDAY	1
+WEDNESDAY	2
+
+Enums start from 0 unless specified.
+
+🔹 Custom Values
+enum Day {
+    MONDAY = 1,
+    TUESDAY,
+    WEDNESDAY
+};
+
+Now:
+
+Name	Value
+MONDAY	1
+TUESDAY	2
+WEDNESDAY	3
+
+Values auto-increment.
+
+
+#include <iostream>
+using namespace std;
+
+enum Day {
+    MONDAY, ==> 0
+    TUESDAY=2,  ==> 2
+    WEDNESDAY,   ==> 3
+    FIRDAY,  ==>4
+    SATURDAY  ==>5
+};
+int main(){
+    Day today=MONDAY;
+    cout << today; 
+}
