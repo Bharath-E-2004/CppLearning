@@ -1,0 +1,132 @@
+      Control Statement 
+
+*IF Condition:
+
+if (condition) {
+    // runs if condition is true
+}
+
+🔹 if – else
+if (condition) {
+    // if true
+} else {
+    // if false
+}
+
+🔹 if – else if – else (Ladder)
+
+Used when you have multiple conditions.
+
+int marks = 75;
+
+if (marks >= 90) {
+    cout << "Grade A";
+}
+else if (marks >= 75) {
+    cout << "Grade B";
+}
+else if (marks >= 50) {
+    cout << "Grade C";
+}
+else {
+    cout << "Fail";
+}
+
+
+*Switch Case
+
+switch (expression) {
+    case value1:
+        // code
+        break;
+
+    case value2:
+        // code
+        break;
+
+    default:
+        // if none match
+}
+
+Supported Types in switch
+
+Works with:
+
+int
+
+char
+
+enum
+
+Modern C++ (C++17+) also supports some string switching tricks, but traditionally not string directly.
+
+
+*While Loop
+
+while (condition) {
+    // code runs while condition is true
+}
+
+🧠 Comma Operator Behavior
+
+In C++, the comma inside condition is called the comma operator.
+
+It evaluates both expressions, but only the last expression decides the result.
+
+Example:
+
+int a = 1;
+int b = 1;
+
+while (a < 5, b < 5) {
+    cout << b << " ";
+    b++;
+}
+
+* Do While Loop
+
+do {
+
+    // code block
+} while (condition);
+
+*For Loop
+
+for (initialization; condition; update) {
+    // code block
+}
+
+Think of it like:
+
+Start
+
+Check condition
+
+Run code
+
+Update
+
+Repeat
+
+* break And Continue
+
+for (int i = 1; i <= 5; i++) {
+    if (i == 3)
+        break;
+    cout << i << " ";
+}
+
+for (int i = 1; i <= 5; i++) {
+    if (i == 3)
+        continue;
+    cout << i << " ";
+}
+
+cmath::package
+
+
+min(a,y);
+max(a,y;
+round(a);
+
+log(10)
