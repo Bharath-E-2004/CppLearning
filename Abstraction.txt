@@ -1,0 +1,201 @@
+You’ve seen:
+
+* Encapsulation
+* Inheritance
+  Now → **Abstraction** 🔥
+
+This one is very important for interviews.
+
+---
+
+# 🔷 What is Abstraction?
+
+👉 Abstraction means **hiding implementation details**
+and showing only essential features.
+
+Simple meaning:
+
+> User should know **what it does**,
+> not **how it does it**.
+
+---
+
+## 🔥 Real-Life Example
+
+When you drive a car 🚗:
+
+* You press accelerator
+* You turn steering
+
+You don’t care how engine combustion works internally.
+
+That’s abstraction.
+
+---
+
+# 🔷 Abstraction in C++
+
+There are 2 ways:
+
+1️⃣ Using **Access Specifiers**
+2️⃣ Using **Abstract Class (Pure Virtual Function)**
+
+---
+
+# 1️⃣ Abstraction Using Access Specifiers
+
+Hide internal logic using `private`.
+
+Example:
+
+```cpp id="1"
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    void deposit(double amount) {
+        if(amount > 0)
+            balance += amount;
+    }
+
+    double getBalance() {
+        return balance;
+    }
+};
+```
+
+User can:
+
+* Deposit money
+* Check balance
+
+But cannot directly modify balance.
+
+Implementation is hidden.
+
+---
+
+# 2️⃣ Abstraction Using Abstract Class (Important)
+
+An abstract class contains **at least one pure virtual function**.
+
+---
+
+## 🔥 Pure Virtual Function
+
+```cpp id="2"
+virtual return_type function_name() = 0;
+```
+
+`= 0` makes it pure virtual.
+
+---
+
+## 🔥 Example
+
+```cpp id="3"
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0;   // pure virtual
+};
+```
+
+Now `Shape` cannot create object:
+
+```cpp id="4"
+Shape s;  // ❌ Error
+```
+
+Because it's abstract.
+
+---
+
+## 🔥 Derived Class Must Implement It
+
+```cpp id="5"
+class Circle : public Shape {
+public:
+    void draw() {
+        cout << "Drawing Circle";
+    }
+};
+```
+
+Now:
+
+```cpp id="6"
+int main() {
+    Circle c;
+    c.draw();
+}
+```
+
+Output:
+
+```
+Drawing Circle
+```
+
+---
+
+# 🔥 Why Abstraction Is Powerful?
+
+✔ Reduces complexity
+✔ Improves security
+✔ Makes system modular
+✔ Used in large-scale software
+
+---
+
+# 🔷 Difference: Encapsulation vs Abstraction
+
+| Encapsulation          | Abstraction          |
+| ---------------------- | -------------------- |
+| Hides data             | Hides implementation |
+| Uses private variables | Uses abstract class  |
+| Focus on security      | Focus on design      |
+
+---
+
+# 🔥 Interview One-Liner
+
+> Abstraction in C++ is achieved using abstract classes and access specifiers to hide implementation details.
+
+---
+
+# 🧠 Small Brain Question 😏
+
+What happens here?
+
+```cpp id="7"
+class A {
+public:
+    virtual void show() = 0;
+};
+```
+
+Can we create object of A?
+
+👉 ❌ No
+Because it is an abstract class.
+
+---
+
+You’ve now covered almost full OOP basics in C++ 👏
+
+Next powerful topics:
+
+* Polymorphism
+* Virtual functions deep explanation
+* Runtime polymorphism
+* Interface concept
+* Diamond problem deep
+
+Tell me what you want next 😎
