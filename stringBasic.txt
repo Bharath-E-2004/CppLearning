@@ -1,0 +1,249 @@
+Header File #include<string>
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name = "Bharath";
+    cout << name;
+}
+
+#include <stdio.h>
+
+int main() {
+    char* name = "Bharath";  // sizeof(name) ==> 8 because it include '\0' but name.length() or name.size() give a 7 is answer
+    char name2[]={'b','h','a','r','a','t','h'}; // sizeof(name2) ==> 7
+    printf("%d ",sizeof(name));
+    printf("\n%d",sizeof(name2));
+}
+
+Ahhh good 😌 let’s properly understand **`string` in C++** — this is way more powerful than C-style strings.
+
+---
+
+# 🧵 What is `string` in C++?
+
+In C++:
+
+```cpp
+#include <string>
+```
+
+`string` is a **class** from the C++ Standard Library.
+
+It automatically manages memory (no headache like `char arr[]` in C).
+
+---
+
+# 🔹 Basic Declaration
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name = "Bharath";
+    cout << name;
+}
+```
+
+Simple. Clean. No null terminator tension 😌
+
+---
+
+# 🔹 Input with string
+
+### ⚠️ Important difference:
+
+```cpp
+string name;
+cin >> name;
+```
+
+👉 This reads only **one word** (stops at space).
+
+If input is:
+
+```
+E Bharath
+```
+
+It will only store:
+
+```
+E
+```
+
+---
+
+### ✅ To read full line:
+
+```cpp
+getline(cin, name);
+```
+
+Example:
+
+```cpp
+string fullName;
+getline(cin, fullName);
+cout << fullName;
+```
+
+---
+
+# 🔹 Useful string Operations
+
+## 1️⃣ Length
+
+```cpp
+name.length();
+name.size();   // same thing
+```
+
+---
+
+## 2️⃣ Access characters
+
+```cpp
+name[0];      // first character
+name.at(1);   // safer version
+```
+
+Difference:
+
+* `[]` → no bounds checking
+* `.at()` → throws error if invalid index
+
+---
+
+## 3️⃣ Concatenation
+
+```cpp
+string a = "Hello";
+string b = "World";
+
+string c = a + " " + b;
+```
+
+Output:
+
+```
+Hello World
+```
+
+---
+
+## 4️⃣ Compare strings
+
+```cpp
+if (a == b)
+```
+
+No need for `strcmp()` like C 😎
+
+---
+
+## 5️⃣ Substring
+
+```cpp
+string s = "Bharath";
+cout << s.substr(0, 4);
+```
+
+Output:
+
+```
+Bhar
+```
+
+Format:
+
+```
+substr(start_index, length)
+```
+
+---
+
+## 6️⃣ Find
+
+```cpp
+s.find("ra");
+```
+
+Returns starting index or `string::npos` if not found.
+
+---
+
+# 🔥 C-style vs C++ string
+
+### C-style
+
+```cpp
+char arr[] = "Hello";
+```
+
+* Null-terminated (`\0`)
+* Fixed size
+* Manual handling
+
+### C++ string
+
+```cpp
+string s = "Hello";
+```
+
+* Dynamic size
+* Auto memory management
+* Safer
+* Rich functions
+
+---
+
+# 🧠 Internal Concept (Important for Interviews)
+
+`string` internally stores characters in **contiguous memory** (like array).
+
+So:
+
+```cpp
+string s = "Hello";
+cout << s[1];
+```
+
+Works because it behaves like an array.
+
+---
+
+# ⚠️ Very Important Case
+
+```cpp
+string s;
+cin >> s;
+getline(cin, s);
+```
+
+This may skip input because `cin` leaves a newline in buffer.
+
+Fix:
+
+```cpp
+cin.ignore();
+getline(cin, s);
+```
+
+---
+
+Now small test for you 😏
+
+What will this print?
+
+```cpp
+string s = "hello";
+s[0] = 'H';
+cout << s;
+```
+
+Think before answering.
