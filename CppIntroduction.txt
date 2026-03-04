@@ -1,0 +1,39 @@
+                             Day-1
+Introduction
+
+Bjarne Stroustrup - 1985 40 year ago
+
+Mid Level Language
+
+C++ - an extension of C, almost the same Syntax
+
+
+used in game development
+
+Store a c++ file like .cpp extension
+
+#include<iostream>
+using namespace std; /* default function or Standard Functions */ without It we can put std:: in every cout and  cin like that std::cout<<
+
+int main(){
+ 
+  cout<< "Hello World!"; // cout is inertion operation in the terminal are console
+  return 0;
+
+}
+
+Escape Character is
+
+\n NewLine
+
+\t space
+
+\"
+
+\a -> give a sound;
+
+%m give a success in format in c
+
+cout << "HelloWorld" << endl means goto next line;
+
+cout << "Success Required Scarifiaction"<<endl<<"Bharath"<<endl;
