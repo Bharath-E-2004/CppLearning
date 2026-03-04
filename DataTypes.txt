@@ -1,0 +1,91 @@
+DataTypes in c++;
+
+int age;
+
+cin >> age ;
+ 
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter The Age : ";
+    cin >> age;
+    cout << "Your age is "<< age;
+    return 0;
+}
+
+Datatypes
+
+2️⃣ Data Types
+
+int - 4 bytes
+    Size:
+
+Usually 4 bytes (32 bits)
+
+Range:
+
+-2,147,483,648 to 2,147,483,647
+
+short int      // smaller
+long int       // bigger
+long long int  // very big
+unsigned int   // no negative values
+ 
+unsigned int x = 10;  // cannot store negative
+
+float - 4 bytes
+
+float pi = 3.14f;
+
+⚠️ Notice the f at the end — otherwise C++ treats it as double.
+
+Size:
+
+4 bytes
+
+Precision:
+
+~6–7 decimal digits
+
+double - 8 bytes
+
+Size:
+
+8 bytes
+
+Precision:
+
+~15 decimal digits
+
+👉 Use double in interviews unless memory is critical.
+
+char - 1 Bytes
+
+Size:
+
+1 byte
+
+Internally stored as ASCII value:
+
+char ch = 'A';
+cout << (int)ch;   // prints 65
+
+bool - 1 bytes
+
+Internally:
+
+true = 1
+
+false = 0
+ 
+string -  #include <string>
+
+char arr[] = "Hello";   // C-style string
+string s = "Hello";     // C++ string (better)
+
+setprecision using a library -> #include <iomanip> -> input/output manipulation
+
+ cout <<fixed<< setprecision(9);
+ cout<<salary;
