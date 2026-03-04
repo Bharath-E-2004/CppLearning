@@ -1,0 +1,268 @@
+Class And Object
+
+#include <iostream>
+using namespace std;
+class Student{
+   public:  
+    string name;
+    int age;
+
+    Student(string name1,int age1){
+        name=name1;
+        age=age1;
+    }
+};
+int main() {
+    Student s1("Bharath",21);
+    cout << s1.name << "\n" << s1.age << endl;
+    return 0;
+}
+
+Ooo okay 🔥 now we’re entering **OOP world** — this is where C++ becomes powerful.
+
+Let’s break **Class and Object** in a very clean way.
+
+---
+
+# 🔷 What is a Class?
+
+A **class** is a blueprint (template).
+It defines:
+
+* Variables (data members)
+* Functions (member functions)
+
+Think of it like a design of a house 🏠
+But not the real house.
+
+---
+
+# 🔷 What is an Object?
+
+An **object** is a real instance of a class.
+
+If class = blueprint
+Object = actual house built from it.
+
+---
+
+# 🔥 Basic Syntax
+
+```cpp
+class ClassName {
+public:
+    // data members
+    // member functions
+};
+```
+
+---
+
+# 🔥 Simple Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    void display() {
+        cout << name << " " << age;
+    }
+};
+
+int main() {
+    Student s1;   // object creation
+
+    s1.name = "Bharath";
+    s1.age = 20;
+
+    s1.display();
+}
+```
+
+Output:
+
+```
+Bharath 20
+```
+
+---
+
+# 🔷 Access Specifiers (VERY IMPORTANT)
+
+C++ has 3:
+
+1. `public` → accessible everywhere
+2. `private` → accessible only inside class
+3. `protected` → used in inheritance
+
+Example:
+
+```cpp
+class Student {
+private:
+    int marks;
+
+public:
+    void setMarks(int m) {
+        marks = m;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+};
+```
+
+Now you cannot do:
+
+```cpp
+s1.marks = 90;  // ❌ Error
+```
+
+You must use:
+
+```cpp
+s1.setMarks(90);
+```
+
+👉 This is called **Encapsulation**.
+
+---
+
+# 🔥 Constructor (Important Topic)
+
+A constructor is a special function:
+
+* Same name as class
+* Runs automatically when object is created
+
+```cpp
+class Student {
+public:
+    string name;
+
+    Student(string n) {   // constructor
+        name = n;
+    }
+
+    void display() {
+        cout << name;
+    }
+};
+
+int main() {
+    Student s1("Bharath");
+    s1.display();
+}
+```
+
+Output:
+
+```
+Bharath
+```
+
+---
+
+# 🔥 Default Constructor
+
+```cpp
+class Test {
+public:
+    Test() {
+        cout << "Object Created";
+    }
+};
+```
+
+Runs automatically.
+
+---
+
+# 🔥 Object Memory Concept (Important)
+
+When you create:
+
+```cpp
+Student s1;
+```
+
+Memory is allocated for:
+
+* All data members
+* Functions are shared (not duplicated)
+
+---
+
+# 🧠 Small Brain Test 😏
+
+What happens here?
+
+```cpp
+class A {
+    int x;
+};
+
+int main() {
+    A obj;
+    obj.x = 10;
+}
+```
+
+Will it work?
+
+Answer: ❌ No
+Because `x` is private by default in class.
+
+---
+
+# 🔥 Difference: class vs struct
+
+In C++:
+
+* `class` → default access is **private**
+* `struct` → default access is **public**
+
+---
+
+Now tell me 👀
+Do you want next:
+
+* Destructor
+* Inheritance
+* Polymorphism
+* Virtual functions
+* Static members
+
+We can level you up properly step by step 🚀
+
+function Definition
+
+#include <iostream>
+using namespace std;
+class Student{
+   public:  
+    string name;
+    int age;
+
+    Student(string name1,int age1){
+        name=name1;
+        age=age1;
+    }
+    int display();
+};
+
+int Student::display(){
+    return age;
+}
+int main() {
+    Student s1("Bharath",21);
+    cout << s1.name << "\n" << s1.age << endl;
+    cout << s1.display() ;
+    return 0;
+}
