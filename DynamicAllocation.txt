@@ -1,0 +1,190 @@
+Dynamic Allocation
+
+Ohooo 🔥 now we’re entering **Dynamic Memory Allocation** — this is core C++ power stuff.
+
+Take it slow. Understand it once properly — lifetime sorted 😎
+
+---
+
+# 🔹 What is Dynamic Allocation?
+
+👉 Memory allocated at **runtime**
+👉 Stored in **heap memory**
+👉 Managed manually using `new` and `delete`
+
+Unlike:
+
+```cpp
+int a = 10;   // stored in stack
+```
+
+Dynamic memory:
+
+```cpp
+int *p = new int(10);
+```
+
+---
+
+# 🔥 1️⃣ Allocating Single Variable
+
+```cpp
+int *p = new int;
+```
+
+Or initialize directly:
+
+```cpp
+int *p = new int(50);
+```
+
+Access value:
+
+```cpp
+cout << *p;   // 50
+```
+
+Free memory:
+
+```cpp
+delete p;
+```
+
+---
+
+# 🔥 2️⃣ Dynamic Array
+
+Instead of:
+
+```cpp
+int arr[5];
+```
+
+Use:
+
+```cpp
+int n;
+cin >> n;
+
+int *arr = new int[n];
+```
+
+Now size decided at runtime 👀
+
+Access:
+
+```cpp
+arr[0] = 10;
+cout << arr[0];
+```
+
+Free memory:
+
+```cpp
+delete[] arr;
+```
+
+⚠️ Very important:
+
+* `delete` → single variable
+* `delete[]` → array
+
+---
+
+# 🧠 Memory Layout
+
+| Memory Type     | Stored Where |
+| --------------- | ------------ |
+| Local variables | Stack        |
+| `new` allocated | Heap         |
+
+Heap is larger but must be manually managed.
+
+---
+
+# 🔥 Why Use Dynamic Memory?
+
+When:
+
+* Size unknown at compile time
+* Creating linked list
+* Creating tree
+* Big data structures
+
+---
+
+# 🚨 Memory Leak Example
+
+```cpp
+int *p = new int(100);
+// forgot delete
+```
+
+Memory stays allocated even after function ends → leak.
+
+---
+
+# 🔥 Proper Pattern
+
+```cpp
+int *p = new int(100);
+
+// use it
+
+delete p;
+p = nullptr;   // good practice
+```
+
+Setting to `nullptr` avoids dangling pointer.
+
+---
+
+# 🔥 3️⃣ Dynamic 2D Array (Important)
+
+```cpp
+int rows = 2;
+int cols = 3;
+
+int **matrix = new int*[rows];
+
+for (int i = 0; i < rows; i++) {
+    matrix[i] = new int[cols];
+}
+```
+
+Delete properly:
+
+```cpp
+for (int i = 0; i < rows; i++) {
+    delete[] matrix[i];
+}
+delete[] matrix;
+```
+
+---
+
+# ⚠️ Interview Insight
+
+Modern C++ prefers:
+
+* `vector`
+* `unique_ptr`
+* `shared_ptr`
+
+Instead of raw `new` / `delete`.
+
+Because manual memory = error-prone.
+
+---
+
+# 🧠 Small Brain Test 😏
+
+What will happen here?
+
+```cpp
+int *p = new int(10);
+delete p;
+cout << *p;
+```
+
+Safe or dangerous? Why?
