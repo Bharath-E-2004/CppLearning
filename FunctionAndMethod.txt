@@ -1,0 +1,431 @@
+Function in c++
+
+Nice 😎 now we’re talking about **Functions in C++** — core building block of clean code.
+
+Let’s build it properly.
+
+---
+
+# 🔹 What is a Function?
+
+👉 A block of code
+👉 Performs a specific task
+👉 Reusable
+
+Instead of writing same logic again and again — we use function.
+
+---
+
+# 🔥 Basic Syntax
+
+```cpp
+return_type function_name(parameters) {
+    // code
+    return value;
+}
+```
+
+---
+
+# 🔹 1️⃣ Simple Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void greet() {
+    cout << "Hello!";
+}
+
+int main() {
+    greet();
+}
+```
+
+Output:
+
+```
+Hello!
+```
+
+`void` → means function returns nothing.
+
+---
+
+# 🔥 2️⃣ Function with Return Type
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(5, 3);
+}
+```
+
+Output:
+
+```
+8
+```
+
+---
+
+# 🔹 3️⃣ Function Declaration + Definition (Important)
+
+Sometimes function is written after `main()`.
+
+So we declare it first:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int add(int, int);  // declaration
+
+int main() {
+    cout << add(2, 3);
+}
+
+int add(int a, int b) {  // definition
+    return a + b;
+}
+```
+
+---
+
+# 🔥 4️⃣ Pass by Value
+
+```cpp
+void change(int x) {
+    x = 100;
+}
+
+int main() {
+    int a = 10;
+    change(a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+10
+```
+
+Why? Because copy is passed.
+
+---
+
+# 🔥 5️⃣ Pass by Reference (VERY IMPORTANT)
+
+```cpp
+void change(int &x) {
+    x = 100;
+}
+
+int main() {
+    int a = 10;
+    change(a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+100
+```
+
+Now original variable changes.
+
+---
+
+# 🔥 6️⃣ Pass by Pointer
+
+```cpp
+void change(int *x) {
+    *x = 200;
+}
+
+int main() {
+    int a = 10;
+    change(&a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+200
+```
+
+---
+
+# 🔥 7️⃣ Default Arguments
+
+```cpp
+int add(int a, int b = 5) {
+    return a + b;
+}
+
+cout << add(10);   // 15
+```
+
+---
+
+# 🔥 8️⃣ Function Overloading
+
+Same function name, different parameters:
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+```
+
+Compiler decides based on arguments.
+
+---
+
+# 🧠 Small Brain Test 😏
+
+What will this print?
+
+```cpp
+void fun(int x) {
+    x = x + 5;
+}
+
+int main() {
+    int a = 10;
+    fun(a);
+    cout << a;
+}
+```
+
+Think carefully — value or reference? 👀
+
+
+default argument
+
+
+Nice 😎 now we’re talking about **Functions in C++** — core building block of clean code.
+
+Let’s build it properly.
+
+---
+
+# 🔹 What is a Function?
+
+👉 A block of code
+👉 Performs a specific task
+👉 Reusable
+
+Instead of writing same logic again and again — we use function.
+
+---
+
+# 🔥 Basic Syntax
+
+```cpp
+return_type function_name(parameters) {
+    // code
+    return value;
+}
+```
+
+---
+
+# 🔹 1️⃣ Simple Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void greet() {
+    cout << "Hello!";
+}
+
+int main() {
+    greet();
+}
+```
+
+Output:
+
+```
+Hello!
+```
+
+`void` → means function returns nothing.
+
+---
+
+# 🔥 2️⃣ Function with Return Type
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(5, 3);
+}
+```
+
+Output:
+
+```
+8
+```
+
+---
+
+# 🔹 3️⃣ Function Declaration + Definition (Important)
+
+Sometimes function is written after `main()`.
+
+So we declare it first:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int add(int, int);  // declaration
+
+int main() {
+    cout << add(2, 3);
+}
+
+int add(int a, int b) {  // definition
+    return a + b;
+}
+```
+
+---
+
+# 🔥 4️⃣ Pass by Value
+
+```cpp
+void change(int x) {
+    x = 100;
+}
+
+int main() {
+    int a = 10;
+    change(a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+10
+```
+
+Why? Because copy is passed.
+
+---
+
+# 🔥 5️⃣ Pass by Reference (VERY IMPORTANT)
+
+```cpp
+void change(int &x) {
+    x = 100;
+}
+
+int main() {
+    int a = 10;
+    change(a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+100
+```
+
+Now original variable changes.
+
+---
+
+# 🔥 6️⃣ Pass by Pointer
+
+```cpp
+void change(int *x) {
+    *x = 200;
+}
+
+int main() {
+    int a = 10;
+    change(&a);
+    cout << a;
+}
+```
+
+Output:
+
+```
+200
+```
+
+---
+
+# 🔥 7️⃣ Default Arguments
+
+```cpp
+int add(int a, int b = 5) {
+    return a + b;
+}
+
+cout << add(10);   // 15
+```
+
+---
+
+# 🔥 8️⃣ Function Overloading
+
+Same function name, different parameters:
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+```
+
+Compiler decides based on arguments.
+
+---
+
+# 🧠 Small Brain Test 😏
+
+What will this print?
+
+```cpp
+void fun(int x) {
+    x = x + 5;
+}
+
+int main() {
+    int a = 10;
+    fun(a);
+    cout << a;
+}
+```
+
+Think carefully — value or reference? 👀
